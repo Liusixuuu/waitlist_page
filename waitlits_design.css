@@ -1,0 +1,96 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container holding the content */
+.container {
+    background-color: white;
+    text-align: center;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+}
+
+/* Logo styling */
+.logo img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Description paragraph */
+p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Email input section */
+.email-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.email-section input[type="email"] {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    width: 60%;
+    max-width: 300px;
+    margin-right: 10px;
+}
+
+.email-section button {
+    padding: 15px 25px;
+    background-color: #b587f9;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.email-section button:hover {
+    background-color: #a06bef;
+}
+
+/* Members section */
+.members {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.members .profile-pics img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: -10px;
+    border: 2px solid white;
+}
+
+.members p {
+    margin-left: 15px;
+    color: #666;
+    font-size: 16px;
+}
