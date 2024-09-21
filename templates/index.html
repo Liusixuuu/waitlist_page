@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replify is Launching Soon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='waitlist_design.css') }}">
+    <script>
+        function fetchUserCount() {
+            fetch('/user_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('user-count').innerText = data.user_count;
+                });
+        }
+
+        function submitEmail(event) {
+            event.preventDefault();
+            const email = document.getElementById('email-input').value;
+
+            fetch('/add_user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error); // Show error message
+                } else {
+                    alert(data.message); // Show success message
+                    fetchUserCount();    // Update the user count
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        window.onload = function() {
+            fetchUserCount();
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        <h1>Replify is launching soon!</h1>
+        <p>Leave your email to be a pioneer user and we'll notify you when we launch.</p>
+        <div class="email-section">
+            <form id="email-form" onsubmit="submitEmail(event)">
+                <input type="email" id="email-input" placeholder="Email" required>
+                <button type="submit">Join the waitlist</button>
+            </form>
+        </div>
+        <div class="members">
+            <p><span id="user-count">0</span> members joined</p>
+        </div>
+    </div>
+</body>
+</html>
